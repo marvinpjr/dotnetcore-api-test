@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using StatsKeeper.Api.Services;
 
 namespace stats_keeper_api
 {
@@ -24,6 +25,9 @@ namespace stats_keeper_api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            services.AddSingleton<IPlayerService, PlayerService>();
+            services.AddSingleton<ITeamService, TeamService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
