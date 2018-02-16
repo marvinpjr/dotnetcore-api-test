@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace stats_keeper_api
+namespace StatsKeeperApi
 {
     public class Program
     {

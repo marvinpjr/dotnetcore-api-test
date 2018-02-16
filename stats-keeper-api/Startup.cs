@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using StatsKeeper.Api.Services;
 
-namespace stats_keeper_api
+namespace StatsKeeperApi
 {
     public class Startup
     {

@@ -16,7 +16,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "stats_keeper_api": {
+    "StatsKeeperApi": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "api/values",
