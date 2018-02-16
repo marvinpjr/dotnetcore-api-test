@@ -15,30 +15,35 @@ namespace StatsKeeper.Api.Controllers
         }
 
         [HttpGet]
+        [Route("player/all")]
         public IEnumerable<Player> Players()
         {
             return playerService.GetPlayers();
         }
 
         [HttpGet("{id}")]
+        [Route("player/{id}")]
         public Player Player(int id)
         {
             return playerService.GetPlayer(id);
         }
 
         [HttpPost]
+        [Route("player/create")]
         public Player Create([FromBody]Player player)
         {
             return playerService.Create(player);
         }
 
         [HttpDelete("{id}")]
+        [Route("player/delete/{id}")]
         public bool Delete(int id)
         {
             return playerService.Delete(id);
         }
 
         [HttpPut]
+        [Route("player/update")]
         public Player Update([FromBody]Player player)
         {
             return playerService.Update(player);

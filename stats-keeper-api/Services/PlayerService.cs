@@ -6,14 +6,12 @@ using System.Linq;
 namespace StatsKeeper.Api.Services
 {
     public class PlayerService : IPlayerService
-    {
-        private readonly ITeamService teamService;
+    {        
         private static List<Player> players;
         private static int counter;
 
-        public PlayerService(ITeamService teamService)
-        {
-            this.teamService = teamService;
+        public PlayerService()
+        {     
             players = new List<Player>()
             {
                 new Player(){ Id = 1, FirstName = "Garrett", JerseyNum = 10, LastName = "Palmer" },
@@ -48,20 +46,6 @@ namespace StatsKeeper.Api.Services
             return players;
         }
 
-        public IEnumerable<Player> GetPlayersOnTeam(int teamId)
-        {
-            return teamService.GetTeam(teamId).Players;
-        }
-
-        public Team AddPlayerToTeam(int playerId, int teamId)
-        {
-            var team = teamService.GetTeam(teamId);
-            var player = players.SingleOrDefault(p => p.Id == playerId);
-            if (player == null) throw new KeyNotFoundException($"No player with id {playerId} was found.");
-            team.Players.Add(player);
-            return team;            
-        }
-
         public Player Update(Player player)
         {
             var playerToUpdate = players.SingleOrDefault(p => p.Id == player.Id);
@@ -80,6 +64,5 @@ namespace StatsKeeper.Api.Services
         Player Create(Player newPlayer);
         bool Delete(int id);
         Player Update(Player team);
-        IEnumerable<Player> GetPlayersOnTeam(int teamId);
     }
 }

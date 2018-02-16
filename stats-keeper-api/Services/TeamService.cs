@@ -6,11 +6,13 @@ namespace StatsKeeper.Api.Services
 {
     public class TeamService: ITeamService
     {
+        private readonly IPlayerService playerService;
         private static List<Team> teams;
         private static int counter;
 
-        public TeamService()
+        public TeamService(IPlayerService playerService)
         {
+            this.playerService = playerService;
             teams = new List<Team>
             {
                 new Team() {Id=1, Name="Eagles", Players=new List<Player>()},
@@ -54,6 +56,25 @@ namespace StatsKeeper.Api.Services
         {
             return teams;
         }
+
+        public IEnumerable<Player> GetPlayersOnTeam(int teamId)
+        {
+            var team = teams.SingleOrDefault(t => t.Id == teamId);
+            if (team == null) throw new KeyNotFoundException($"Team with id {teamId} wasn't found");
+            return team.Players;            
+        }
+
+        public Team AddPlayerToTeam(int playerId, int teamId)
+        {
+            var player = playerService.GetPlayer(playerId);
+            if (player == null) throw new KeyNotFoundException($"Player with id {playerId} was not found.");
+
+            var team = teams.SingleOrDefault(t => t.Id == teamId);
+            if (team == null) throw new KeyNotFoundException($"Team with id {teamId} was not found.");
+            
+            team.Players.Add(player);
+            return team;
+        }
     }
 
     public interface ITeamService
@@ -63,5 +84,7 @@ namespace StatsKeeper.Api.Services
         Team Create(Team newTeam);
         bool Delete(int id);
         Team Update(Team team);
+        Team AddPlayerToTeam(int playerId, int teamId);
+        IEnumerable<Player> GetPlayersOnTeam(int teamId);
     }
 }
