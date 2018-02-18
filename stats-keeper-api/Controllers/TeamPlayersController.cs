@@ -9,6 +9,7 @@ using StatsKeeper.Api.Services;
 namespace StatsKeeper.Api.Controllers
 {
     [Route("api/teamplayers")]
+    [Produces("application/json")]
     public class TeamPlayersController : Controller
     {
         private readonly ITeamService teamService;
@@ -18,15 +19,20 @@ namespace StatsKeeper.Api.Controllers
             this.teamService = teamService;
         }
 
-        [HttpPost]
-        //[Route("teams/{teamId}/add/player/{playerId}")]
+        [HttpPost]        
         public Team Add([FromBody] int teamId, int playerId)
         {
             return teamService.AddPlayerToTeam(playerId, teamId);
         }
 
-        [HttpGet("{teamId}")]
-        //[Route("teams/{teamId}/players")]        
+        /// <summary>
+        /// Retrieve the players on the specified team.
+        /// </summary>
+        /// <param name="teamId">The id of the team being requested.</param>
+        /// <returns>A list of players on that team.</returns>        
+        /// <response code="400">Team was not found.</response>  
+        [HttpGet("{teamId}")]        
+        [ProducesResponseType(typeof(IEnumerable<Player>), 400)]
         public IEnumerable<Player> TeamPlayers([FromRoute] int teamId)
         {
             return teamService.GetPlayersOnTeam(teamId);

@@ -9,6 +9,7 @@ using StatsKeeper.Api.Services;
 namespace StatsKeeper.Api.Controllers
 {
     [Route("api/player")]
+    [Produces("application/json")]
     public class PlayerController : Controller
     {
         private readonly IPlayerService playerService;

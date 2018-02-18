@@ -6,6 +6,7 @@ using StatsKeeper.Api.Services;
 namespace StatsKeeper.Api.Controllers
 {
     [Route("api/teams")]
+    [Produces("application/json")]
     public class TeamsController : Controller
     {
         private readonly ITeamService teamService;
