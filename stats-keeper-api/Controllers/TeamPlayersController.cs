@@ -19,6 +19,12 @@ namespace StatsKeeper.Api.Controllers
             this.teamService = teamService;
         }
 
+        /// <summary>
+        /// Add a player to a team.
+        /// </summary>
+        /// <param name="teamId">Id of the team.</param>
+        /// <param name="playerId">Id of the player to add.</param>
+        /// <returns>The team that the player has been added to.</returns>
         [HttpPost]        
         public Team Add([FromBody] int teamId, int playerId)
         {
