@@ -11,7 +11,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "team/all",
+      "launchUrl": "teams",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -19,7 +19,7 @@
     "StatsKeeperApi": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "team/all",
+      "launchUrl": "teams",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

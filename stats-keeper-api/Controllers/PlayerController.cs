@@ -1,10 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using StatsKeeper.Api.Model;
 using StatsKeeper.Api.Services;
 
 namespace StatsKeeper.Api.Controllers
 {
+    [Route("api/player")]
     public class PlayerController : Controller
     {
         private readonly IPlayerService playerService;
@@ -14,36 +18,29 @@ namespace StatsKeeper.Api.Controllers
             this.playerService = playerService;
         }
 
-        [HttpGet]
-        [Route("player/all")]
-        public IEnumerable<Player> Players()
-        {
-            return playerService.GetPlayers();
-        }
-
         [HttpGet("{id}")]
-        [Route("player/{id}")]
+        // [Route("player/{id}")]
         public Player Player(int id)
         {
             return playerService.GetPlayer(id);
         }
 
         [HttpPost]
-        [Route("player/create")]
+        //[Route("players/create")]
         public Player Create([FromBody]Player player)
         {
             return playerService.Create(player);
         }
 
-        [HttpDelete("{id}")]
-        [Route("player/delete/{id}")]
-        public bool Delete(int id)
+        [HttpDelete]
+        //[Route("players/delete/{id}")]
+        public bool Delete([FromBody]int id)
         {
             return playerService.Delete(id);
         }
 
         [HttpPut]
-        [Route("player/update")]
+        //[Route("players/update")]
         public Player Update([FromBody]Player player)
         {
             return playerService.Update(player);
