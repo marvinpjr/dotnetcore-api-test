@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Rewrite;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -74,6 +76,9 @@ namespace StatsKeeperApi
                 c.InjectStylesheet("/swagger/ui/custom.css");
                 c.InjectOnCompleteJavaScript("/swagger/ui/custom.js");
             });
+
+            // this isn't working for me on azure, not sure why
+            app.UseRewriter(new RewriteOptions().AddRedirect("/", "/help", (int)HttpStatusCode.Redirect));
 
             app.UseMvc();
         }
