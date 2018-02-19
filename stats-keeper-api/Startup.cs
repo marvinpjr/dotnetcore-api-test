@@ -78,7 +78,7 @@ namespace StatsKeeperApi
             });
 
             // this isn't working for me on azure, not sure why
-            app.UseRewriter(new RewriteOptions().AddRedirect("/", "/help", (int)HttpStatusCode.Redirect));
+            app.UseRewriter(new RewriteOptions().AddRedirect("^$", "help", (int)HttpStatusCode.Redirect));
 
             app.UseMvc();
         }
