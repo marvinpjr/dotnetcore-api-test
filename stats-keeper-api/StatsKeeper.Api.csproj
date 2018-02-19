@@ -8,6 +8,10 @@
     <DocumentationFile>bin\Debug\netcoreapp2.0\StatsKeeper.Api.xml</DocumentationFile>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\netcoreapp2.0\StatsKeeper.Api.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <Compile Remove="swagger\**" />
     <Content Remove="swagger\**" />
