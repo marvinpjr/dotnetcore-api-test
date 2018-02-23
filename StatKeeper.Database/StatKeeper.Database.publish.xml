@@ -4,7 +4,7 @@
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseName>StatKeeper</TargetDatabaseName>
     <DeployScriptFileName>StatKeeper.Database.sql</DeployScriptFileName>
-    <TargetConnectionString>Data Source=marvinpjrdbs.database.windows.net;Persist Security Info=True;User ID=marvinpjr;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=True</TargetConnectionString>
+    <TargetConnectionString>Data Source=marvinpjr-dbserver.database.windows.net;Persist Security Info=True;User ID=marvinpjr;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=True;TrustServerCertificate=False</TargetConnectionString>
     <ProfileVersionNumber>1</ProfileVersionNumber>
   </PropertyGroup>
 </Project>
