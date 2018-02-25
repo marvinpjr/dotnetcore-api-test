@@ -69,6 +69,7 @@
     <RefactorLog Include="StatKeeper.Database.refactorlog" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="StatKeeper.Database.publish.xml" />
+    <None Include="StatKeeper.Database.Azure.publish.xml" />
+    <None Include="StatKeeper.Database.Local.publish.xml" />
   </ItemGroup>
 </Project>
