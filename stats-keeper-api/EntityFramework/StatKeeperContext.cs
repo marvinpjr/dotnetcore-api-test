@@ -16,5 +16,16 @@ namespace StatsKeeper.Api.EntityFramework
         {
             optionsBuilder.UseSqlServer(@"Server=StatKeeperDbServer;Database=StatKeeper;Trusted_Connection=True;");
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Team>()
+                .HasMany(t => t.Players)
+                .WithOne();
+
+            modelBuilder.Entity<Player>()
+                .HasMany(p => p.Teams)
+                .WithOne();
+        }
     }
 }

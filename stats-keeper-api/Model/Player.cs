@@ -11,5 +11,7 @@ namespace StatsKeeper.Api.Model
         public int JerseyNum { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+
+        public List<Team> Teams { get; set; }
     }
 }

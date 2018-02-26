@@ -37,7 +37,8 @@ namespace StatsKeeper.Api.Controllers
         //[Route("players/delete/{id}")]
         public bool Delete([FromBody]int id)
         {
-            return playerService.Delete(id);
+            var playerToDelete = playerService.GetPlayer(id);
+            return playerService.Delete(playerToDelete);
         }
 
         [HttpPut]

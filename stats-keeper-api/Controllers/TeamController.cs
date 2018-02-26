@@ -50,7 +50,8 @@ namespace StatsKeeper.Api.Controllers
         //[Route("team/delete")]        
         public bool Delete([FromBody] int id)
         {
-            return teamService.Delete(id);
+            var teamToDelete = teamService.GetTeam(id);
+            return teamService.Delete(teamToDelete);
         }
 
         [HttpPut]

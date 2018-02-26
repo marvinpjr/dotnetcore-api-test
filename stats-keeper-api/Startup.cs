@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using StatsKeeper.Api.Repositories;
 using StatsKeeper.Api.Services;
 using Swashbuckle.AspNetCore.Swagger;
 
@@ -51,6 +52,8 @@ namespace StatsKeeperApi
             // dependency injection
             services.AddSingleton<IPlayerService, PlayerService>();
             services.AddSingleton<ITeamService, TeamService>();
+            services.AddScoped<IPlayerRepository, PlayerRepository>();
+            services.AddScoped<ITeamRepository, TeamRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
