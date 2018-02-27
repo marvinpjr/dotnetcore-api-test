@@ -1,4 +1,5 @@
 ﻿using StatsKeeper.Api.Model;
+using StatsKeeper.Api.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,53 +8,65 @@ namespace StatsKeeper.Api.Services
 {
     public class PlayerService : IPlayerService
     {        
-        private static List<Player> players;
-        private static int counter;
+        //private static List<Player> players;
+        //private static int counter;
+        private readonly IPlayerRepository playerRepository;
 
-        public PlayerService()
-        {     
-            players = new List<Player>()
-            {
-                new Player(){ Id = 1, FirstName = "Garrett", JerseyNum = 10, LastName = "Palmer" },
-                new Player(){ Id = 2, FirstName = "Marvin", JerseyNum = 26, LastName = "Palmer" }
-            };
+        public PlayerService(IPlayerRepository playerRepository)
+        {
+            this.playerRepository = playerRepository;
+
+            //players = new List<Player>()
+            //{
+            //    new Player(){ Id = 1, FirstName = "Garrett", JerseyNum = 10, LastName = "Palmer" },
+            //    new Player(){ Id = 2, FirstName = "Marvin", JerseyNum = 26, LastName = "Palmer" }
+            //};
         }
 
         public Player Create(Player newPlayer)
         {
-            counter++;
-            newPlayer.Id = counter;
-            players.Add(newPlayer);
-            return newPlayer;
+            //counter++;
+            //newPlayer.Id = counter;
+            //players.Add(newPlayer);
+            //return newPlayer;
+            return playerRepository.Create(newPlayer);
         }
 
-        public bool Delete(int id)
+        public bool Delete(Player player)
         {
-            var playerToDelete = players.SingleOrDefault(p => p.Id == id);
-            if (playerToDelete == null) return false;
-            int index = players.IndexOf(playerToDelete);
-            players.RemoveAt(index);
-            return true;
+            //var playerToDelete = players.SingleOrDefault(p => p.Id == id);
+            //if (playerToDelete == null) return false;
+            //int index = players.IndexOf(playerToDelete);
+            //players.RemoveAt(index);
+            //return true;
+
+            return playerRepository.Delete(player);
         }
 
         public Player GetPlayer(int id)
         {
-            return players.Single(p => p.Id == id);
+            //return players.Single(p => p.Id == id);
+
+            return playerRepository.GetPlayer(id);
         }
 
         public IEnumerable<Player> GetPlayers()
         {
-            return players;
+            //return players;
+
+            return playerRepository.GetPlayers();
         }
 
         public Player Update(Player player)
         {
-            var playerToUpdate = players.SingleOrDefault(p => p.Id == player.Id);
-            if (playerToUpdate == null) throw new KeyNotFoundException($"No player with id {player.Id} was found. Update failed.");
-            if (!String.IsNullOrWhiteSpace(player.FirstName)) playerToUpdate.FirstName = player.FirstName;
-            if (!String.IsNullOrWhiteSpace(player.LastName)) playerToUpdate.LastName = player.LastName;
-            if (player.JerseyNum != 0) playerToUpdate.JerseyNum = player.JerseyNum;
-            return playerToUpdate;
+            //var playerToUpdate = players.SingleOrDefault(p => p.Id == player.Id);
+            //if (playerToUpdate == null) throw new KeyNotFoundException($"No player with id {player.Id} was found. Update failed.");
+            //if (!String.IsNullOrWhiteSpace(player.FirstName)) playerToUpdate.FirstName = player.FirstName;
+            //if (!String.IsNullOrWhiteSpace(player.LastName)) playerToUpdate.LastName = player.LastName;
+            //if (player.JerseyNum != 0) playerToUpdate.JerseyNum = player.JerseyNum;
+            //return playerToUpdate;
+
+            return playerRepository.Update(player);
         }
     }
 
@@ -62,7 +75,7 @@ namespace StatsKeeper.Api.Services
         IEnumerable<Player> GetPlayers();
         Player GetPlayer(int id);
         Player Create(Player newPlayer);
-        bool Delete(int id);
+        bool Delete(Player player);
         Player Update(Player team);
     }
 }
