@@ -45,10 +45,10 @@ namespace StatsKeeperApi
             });
 
             // dependency injection
-            services.AddSingleton<IPlayerService, PlayerService>();
-            services.AddSingleton<ITeamService, TeamService>();
-            services.AddScoped<IPlayerRepository, PlayerRepository>();
-            services.AddScoped<ITeamRepository, TeamRepository>();
+            services.AddTransient<IPlayerService, PlayerService>();
+            services.AddTransient<ITeamService, TeamService>();
+            services.AddTransient<IPlayerRepository, PlayerRepository>();
+            services.AddTransient<ITeamRepository, TeamRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
