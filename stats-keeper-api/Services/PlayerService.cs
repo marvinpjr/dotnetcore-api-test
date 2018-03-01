@@ -52,8 +52,6 @@ namespace StatsKeeper.Api.Services
 
         public IEnumerable<Player> GetPlayers()
         {
-            //return players;
-
             return playerRepository.GetPlayers();
         }
 

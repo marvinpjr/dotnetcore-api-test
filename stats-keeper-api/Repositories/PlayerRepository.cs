@@ -10,9 +10,9 @@ namespace StatsKeeper.Api.Repositories
     {
         private readonly StatKeeperContext statKeeperContext;
 
-        public PlayerRepository()
+        public PlayerRepository(StatKeeperContext context)
         {
-            this.statKeeperContext = new StatKeeperContext();
+            this.statKeeperContext = context;
         }
 
         public Player Create(Player newPlayer)
@@ -30,7 +30,7 @@ namespace StatsKeeper.Api.Repositories
 
         public Player GetPlayer(int playerId)
         {
-            return statKeeperContext.Players.SingleOrDefault(p => p.Id == playerId);
+            return statKeeperContext.Players.SingleOrDefault(p => p.PlayerId == playerId);
         }
 
         public IEnumerable<Player> GetPlayers()

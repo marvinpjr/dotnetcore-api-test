@@ -11,9 +11,9 @@ namespace StatsKeeper.Api.Repositories
     {
         private readonly StatKeeperContext statKeeperContext;
 
-        public TeamRepository()
+        public TeamRepository(StatKeeperContext context)
         {
-            statKeeperContext = new StatKeeperContext();
+            statKeeperContext = context;
         }
 
         public Team Create(Team newTeam)
@@ -31,7 +31,7 @@ namespace StatsKeeper.Api.Repositories
         
         public Team GetTeam(int teamId)
         {
-            return statKeeperContext.Teams.SingleOrDefault(t => t.Id == teamId);
+            return statKeeperContext.Teams.SingleOrDefault(t => t.TeamId == teamId);
         }
 
         public IEnumerable<Team> GetTeams()
