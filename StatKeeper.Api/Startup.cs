@@ -7,12 +7,12 @@ using Microsoft.AspNetCore.Rewrite;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
-using StatsKeeper.Api.EntityFramework;
-using StatsKeeper.Api.Repositories;
-using StatsKeeper.Api.Services;
+using StatKeeper.Api.EntityFramework;
+using StatKeeper.Api.Repositories;
+using StatKeeper.Api.Services;
 using Swashbuckle.AspNetCore.Swagger;
 
-namespace StatsKeeperApi
+namespace StatKeeperApi
 {
     public class Startup
     {
@@ -44,7 +44,7 @@ namespace StatsKeeperApi
 
                 // Set the comments path for the Swagger JSON and UI.
                 var basePath = AppContext.BaseDirectory;
-                var xmlPath = Path.Combine(basePath, "StatsKeeper.Api.xml"); // bin\Debug\netcoreapp2.0\StatsKeeper.Api.xml
+                var xmlPath = Path.Combine(basePath, "StatKeeper.Api.xml"); // bin\Debug\netcoreapp2.0\StatKeeper.Api.xml
                 c.IncludeXmlComments(xmlPath);
             });
 

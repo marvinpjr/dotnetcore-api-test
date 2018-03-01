@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace StatsKeeper.Api.EntityFramework
+namespace StatKeeper.Api.EntityFramework
 {
     public static class DbInitializer
     {

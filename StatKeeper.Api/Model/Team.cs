@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace StatsKeeper.Api.Model
+namespace StatKeeper.Api.Model
 {
     public class Team
     {

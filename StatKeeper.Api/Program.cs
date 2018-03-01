@@ -2,9 +2,9 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using StatsKeeper.Api.EntityFramework;
+using StatKeeper.Api.EntityFramework;
 
-namespace StatsKeeperApi
+namespace StatKeeperApi
 {
     public class Program
     {
