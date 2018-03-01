@@ -1,10 +1,10 @@
-﻿using StatsKeeper.Api.Model;
-using StatsKeeper.Api.Repositories;
+﻿using StatKeeper.Api.Model;
+using StatKeeper.Api.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace StatsKeeper.Api.Services
+namespace StatKeeper.Api.Services
 {
     public class TeamService: ITeamService
     {

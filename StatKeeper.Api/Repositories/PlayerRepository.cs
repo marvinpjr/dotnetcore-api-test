@@ -1,10 +1,10 @@
-﻿using StatsKeeper.Api.EntityFramework;
-using StatsKeeper.Api.Model;
+﻿using StatKeeper.Api.EntityFramework;
+using StatKeeper.Api.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace StatsKeeper.Api.Repositories
+namespace StatKeeper.Api.Repositories
 {
     public class PlayerRepository : IPlayerRepository
     {

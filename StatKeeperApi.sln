@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatsKeeper.Api", "stats-keeper-api\StatsKeeper.Api.csproj", "{53B83070-AFDB-4AFC-BBA9-7FB1F490DCA1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatKeeperApi.Api", "StatKeeper.Api\StatKeeperApi.Api.csproj", "{53B83070-AFDB-4AFC-BBA9-7FB1F490DCA1}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "StatKeeper.Database", "StatKeeper.Database\StatKeeper.Database.sqlproj", "{CC20818A-F33C-4C86-AEF6-01755F059286}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "StatKeeperApi.Database", "StatKeeper.Database\StatKeeperApi.Database.sqlproj", "{CC20818A-F33C-4C86-AEF6-01755F059286}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
