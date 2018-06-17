@@ -1,5 +1,4 @@
-﻿using StatKeeper.Api.EntityFramework;
-using StatKeeper.Api.Model;
+﻿using StatKeeper.Api.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
