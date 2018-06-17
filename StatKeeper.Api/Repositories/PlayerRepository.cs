@@ -1,5 +1,4 @@
-﻿using StatKeeper.Api.EntityFramework;
-using StatKeeper.Api.Model;
+﻿using StatKeeper.Api.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,34 +7,37 @@ namespace StatKeeper.Api.Repositories
 {
     public class PlayerRepository : IPlayerRepository
     {
-        private readonly StatKeeperContext statKeeperContext;
+        //private readonly StatKeeperContext statKeeperContext;
 
-        public PlayerRepository(StatKeeperContext context)
+        public PlayerRepository()
         {
-            this.statKeeperContext = context;
+            //this.statKeeperContext = context;
         }
 
         public Player Create(Player newPlayer)
         {
-            statKeeperContext.Players.Add(newPlayer);
-            statKeeperContext.SaveChanges();
+            //statKeeperContext.Players.Add(newPlayer);
+            //statKeeperContext.SaveChanges();
             return newPlayer;
         }
 
         public bool Delete(Player player)
         {
-            statKeeperContext.Players.Remove(player);
-            return statKeeperContext.SaveChanges() != 0;
+            //statKeeperContext.Players.Remove(player);
+            //return statKeeperContext.SaveChanges() != 0;
+            return true;
         }
 
         public Player GetPlayer(int playerId)
         {
-            return statKeeperContext.Players.SingleOrDefault(p => p.PlayerId == playerId);
+            //return statKeeperContext.Players.SingleOrDefault(p => p.PlayerId == playerId);
+            return new Player() { };
         }
 
         public IEnumerable<Player> GetPlayers()
         {
-            return statKeeperContext.Players.ToList<Player>();
+            //return statKeeperContext.Players.ToList<Player>();
+            return new List<Player>() { };
         }
 
         public Player Update(Player team)

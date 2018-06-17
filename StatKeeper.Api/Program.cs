@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using StatKeeper.Api.EntityFramework;
 
 namespace StatKeeperApi
 {
@@ -16,9 +15,8 @@ namespace StatKeeperApi
             {
                 var services = scope.ServiceProvider;
                 try
-                {
-                    var context = services.GetRequiredService<StatKeeperContext>();
-                    DbInitializer.Initialize(context);
+                {                    
+                    
                 }
                 catch (System.Exception ex)
                 {

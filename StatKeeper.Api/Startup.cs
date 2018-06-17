@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Rewrite;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
-using StatKeeper.Api.EntityFramework;
 using StatKeeper.Api.Repositories;
 using StatKeeper.Api.Services;
 using Swashbuckle.AspNetCore.Swagger;
@@ -26,8 +25,6 @@ namespace StatKeeperApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<StatKeeperContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("StatKeeperDatabase")));
             services.AddMvc();
 
             // Register the Swagger generator, defining one or more Swagger documents

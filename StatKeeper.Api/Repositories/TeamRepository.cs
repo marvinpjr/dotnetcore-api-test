@@ -1,5 +1,4 @@
-﻿using StatKeeper.Api.EntityFramework;
-using StatKeeper.Api.Model;
+﻿using StatKeeper.Api.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,34 +8,34 @@ namespace StatKeeper.Api.Repositories
 {
     public class TeamRepository : ITeamRepository
     {
-        private readonly StatKeeperContext statKeeperContext;
+        // private readonly StatKeeperContext statKeeperContext;
 
-        public TeamRepository(StatKeeperContext context)
+        public TeamRepository()
         {
-            statKeeperContext = context;
+            // statKeeperContext = context;
         }
 
         public Team Create(Team newTeam)
         {
-            var entry = statKeeperContext.Teams.Add(newTeam);
-            statKeeperContext.SaveChanges();            
+            //var entry = statKeeperContext.Teams.Add(newTeam);
+            //statKeeperContext.SaveChanges();            
             return newTeam;
         }
 
         public bool Delete(Team team)
         {
-            statKeeperContext.Remove(team);
-            return statKeeperContext.SaveChanges() != 0;
+            //statKeeperContext.Remove(team);
+            return true; // statKeeperContext.SaveChanges() != 0;
         }
         
         public Team GetTeam(int teamId)
         {
-            return statKeeperContext.Teams.SingleOrDefault(t => t.TeamId == teamId);
+            return new Team(); //statKeeperContext.Teams.SingleOrDefault(t => t.TeamId == teamId);
         }
 
         public IEnumerable<Team> GetTeams()
         {
-            return statKeeperContext.Teams.ToList<Team>();
+            return new List<Team>(); // statKeeperContext.Teams.ToList<Team>();
         }
 
         public Team Update(Team team)
